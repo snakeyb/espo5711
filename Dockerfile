@@ -1,8 +1,9 @@
 FROM ubuntu:18.04
 
-MAINTAINER Luca Mattivi <luca@smartdomotik.com>
+MAINTAINER Nick Osborn <nick.osborn@hotmail.co.uk>
+# Based on a file from Luca Mattivi <luca@smartdomotik.com>
 
-ARG TIMEZONE="Europe/Paris"
+ARG TIMEZONE="Europe/London"
 ARG ESPO_VERSION=5.7.11
 
 ENV PROJECT_PATH=/var/www \
@@ -74,11 +75,11 @@ RUN echo $TIMEZONE > /etc/timezone && \
 
 # Add our crontab file
 WORKDIR /tmp
-ADD https://raw.githubusercontent.com/Leen15/EspoCRM-Dockerized/master/crons.conf /root/crons.conf
+ADD https://raw.githubusercontent.com/snakeyb/espo5711/master/crons.conf /root/crons.conf
 
 # VirtualHost
 WORKDIR /tmp
-RUN wget https://raw.githubusercontent.com/Leen15/EspoCRM-Dockerized/master/apache-vhost.conf && \
+RUN wget https://raw.githubusercontent.com/snakeyb/espo5711/master/apache-vhost.conf && \
     cp /tmp/apache-vhost.conf /etc/apache2/sites-available/000-default.conf
 
 #Download ESPOCRM
