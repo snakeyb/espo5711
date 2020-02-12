@@ -4,7 +4,7 @@ MAINTAINER Nick Osborn <nick.osborn@hotmail.co.uk>
 # Based on a file from Luca Mattivi <luca@smartdomotik.com>
 
 ARG TIMEZONE="Europe/London"
-ARG ESPO_VERSION=5.7.11
+ARG ESPO_VERSION=5.8.2
 
 ENV PROJECT_PATH=/var/www \
     PROJECT_URL=uala.it \
@@ -84,10 +84,10 @@ RUN wget https://raw.githubusercontent.com/snakeyb/espo5711/master/apache-vhost.
 
 #Download ESPOCRM
 WORKDIR /tmp
-RUN wget https://www.espocrm.com/downloads/EspoCRM-5.7.11.zip && \
-    unzip /tmp/EspoCRM-5.7.11.zip -d /tmp
+RUN wget https://www.espocrm.com/downloads/EspoCRM-5.8.2.zip && \
+    unzip /tmp/EspoCRM-5.8.2.zip -d /tmp
 
-RUN cp -a /tmp/EspoCRM-5.7.11/. $PROJECT_PATH/
+RUN cp -a /tmp/EspoCRM-5.8.2/. $PROJECT_PATH/
 
 WORKDIR $PROJECT_PATH
 
